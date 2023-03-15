@@ -50,7 +50,7 @@ public class Login {
             @Override
             public void actionPerformed(ActionEvent e) {
                   frame.dispose();
-                  Getinfo infopage=new Getinfo();
+                  TamagotchiGUI infopage=new TamagotchiGUI();
 //                frame.removeAll();
 //                frame.repaint();
 //                frame.revalidate();
