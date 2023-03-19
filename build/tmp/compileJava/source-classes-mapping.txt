@@ -1,7 +1,7 @@
-softwaredesign/Main.java
- softwaredesign.Main
 softwaredesign/TamagotchiGUI.java
  softwaredesign.TamagotchiGUI
+softwaredesign/Main.java
+ softwaredesign.Main
 softwaredesign/Login.java
  softwaredesign.Login
  softwaredesign.Login$1
