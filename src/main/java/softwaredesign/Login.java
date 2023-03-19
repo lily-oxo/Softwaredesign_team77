@@ -45,15 +45,26 @@ public class Login {
         central_panel.add(passwordText);
 
         JButton loginButton = new JButton("login");
-        central_panel.add(loginButton,BorderLayout.SOUTH);
+        central_panel.add(loginButton);
+        JButton createaccButton = new JButton("Create Account");
+        central_panel.add(createaccButton,BorderLayout.SOUTH);
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                User user = new User("hi", "a1", "tama");
                   frame.dispose();
                   TamagotchiGUI infopage=new TamagotchiGUI();
 //                frame.removeAll();
 //                frame.repaint();
 //                frame.revalidate();
+            }
+        });
+        createaccButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                Createacc accpage = new Createacc();
+
             }
         });
     }
