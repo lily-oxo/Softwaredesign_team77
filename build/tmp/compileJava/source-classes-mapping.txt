@@ -2,6 +2,12 @@ softwaredesign/Main.java
  softwaredesign.Main
 softwaredesign/TamagotchiGUI.java
  softwaredesign.TamagotchiGUI
+softwaredesign/User.java
+ softwaredesign.User
+softwaredesign/Createacc.java
+ softwaredesign.Createacc
+ softwaredesign.Createacc$1
 softwaredesign/Login.java
  softwaredesign.Login
  softwaredesign.Login$1
+ softwaredesign.Login$2
