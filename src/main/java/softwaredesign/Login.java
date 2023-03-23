@@ -53,7 +53,7 @@ public class Login {
             public void actionPerformed(ActionEvent e) {
                 User user = new User("hi", "a1", "tama");
                   frame.dispose();
-                  TamagotchiGUI infopage=new TamagotchiGUI();
+                  TamagotchiGUI infopage=new TamagotchiGUI(user);
 //                frame.removeAll();
 //                frame.repaint();
 //                frame.revalidate();

@@ -15,8 +15,15 @@ public class TamagotchiGUI extends JFrame {
     private JButton playButton;
     private JButton sleepButton;
 
-    public TamagotchiGUI() {
+    private User user;
+    private Tamagotchi tamagotchi;
+    private Command command;
+
+    public TamagotchiGUI(User user) {
         super("Tamagotchi");
+
+        this.user = user;
+        command = new Command(user);
 
         // Set the layout manager for the frame
         setLayout(new BorderLayout());
