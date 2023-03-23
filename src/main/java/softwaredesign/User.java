@@ -1,5 +1,7 @@
 package softwaredesign;
 
+import softwaredesign.tamagotchis.Tamagotchi;
+
 public class User {
     public String id;
     public String username;
@@ -18,6 +20,8 @@ public class User {
     }
     public Tamagotchi getTamagotchi(){
         return tamagotchi;
+    }
+    public void rockPaperScissors(){
     }
 
 }
