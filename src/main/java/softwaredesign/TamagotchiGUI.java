@@ -1,5 +1,7 @@
 package softwaredesign;
 
+import softwaredesign.tamagotchis.Tamagotchi;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,9 +16,40 @@ public class TamagotchiGUI extends JFrame {
     private JButton feedButton;
     private JButton playButton;
     private JButton sleepButton;
+    private JButton doctorButton;
+    private JButton earnButton;
 
-    public TamagotchiGUI() {
+    private User user;
+    private Tamagotchi tamagotchi;
+    private Command command;
+
+    public void feed(){
+        //TODO : Show choices of food to User
+        //food: Sandwich(10euro, -20hunger) / Pancake(15euro, -30hunger) / Pasta(20euro, -50hunger)
+        tamagotchi.eat();
+    }
+    public void play(){
+        tamagotchi.playWithUser();
+    }
+    public void callDoctor(){
+        tamagotchi.meetDoctor();
+    }
+    public void rest(){
+        tamagotchi.sleep();
+    }
+    public void cleanUp(){
+        tamagotchi.wash();
+    }
+    public void earnMoneyWithMiniGame(){
+        user.rockPaperScissors();
+    }
+
+    public TamagotchiGUI(User user) {
         super("Tamagotchi");
+
+        this.user = user;
+        this.tamagotchi = user.getTamagotchi();
+        command = new Command(user);
 
         // Set the layout manager for the frame
         setLayout(new BorderLayout());
@@ -28,6 +61,7 @@ public class TamagotchiGUI extends JFrame {
 
         hungerVital = new JProgressBar(0, 100);
         hungerVital.setValue(50);
+        //TODO: Need to be connected to REAL vital
         hungerVital.setStringPainted(true);
         hungerVital.setString("Hunger");
         jp1.add(hungerVital);
@@ -53,10 +87,14 @@ public class TamagotchiGUI extends JFrame {
         feedButton = new JButton("Feed");
         playButton = new JButton("Play");
         sleepButton = new JButton("Sleep");
+        doctorButton = new JButton("Call Doctor");
+        earnButton = new JButton("Earn Money");
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(feedButton);
         buttonPanel.add(playButton);
         buttonPanel.add(sleepButton);
+        buttonPanel.add(doctorButton);
+        buttonPanel.add(earnButton);
         add(buttonPanel, BorderLayout.SOUTH);
 
         // Set the size of the frame and make it visible

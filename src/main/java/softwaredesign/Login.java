@@ -48,12 +48,15 @@ public class Login {
         central_panel.add(loginButton);
         JButton createaccButton = new JButton("Create Account");
         central_panel.add(createaccButton,BorderLayout.SOUTH);
+
+        //TODO: Add Authentication process
+
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 User user = new User("hi", "a1", "tama");
                   frame.dispose();
-                  TamagotchiGUI infopage=new TamagotchiGUI();
+                  TamagotchiGUI infopage=new TamagotchiGUI(user);
 //                frame.removeAll();
 //                frame.repaint();
 //                frame.revalidate();
