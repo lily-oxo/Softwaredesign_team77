@@ -1,21 +1,30 @@
-softwaredesign/Play.java
- softwaredesign.Play
-softwaredesign/Createacc.java
- softwaredesign.Createacc
- softwaredesign.Createacc$1
-softwaredesign/Tamagotchi.java
- softwaredesign.Tamagotchi
-softwaredesign/Command.java
- softwaredesign.Command
-softwaredesign/User.java
- softwaredesign.User
-softwaredesign/Main.java
- softwaredesign.Main
 softwaredesign/Vital.java
  softwaredesign.Vital
-softwaredesign/TamagotchiGUI.java
- softwaredesign.TamagotchiGUI
+softwaredesign/Main.java
+ softwaredesign.Main
+softwaredesign/Play.java
+ softwaredesign.Play
 softwaredesign/Login.java
  softwaredesign.Login
  softwaredesign.Login$1
  softwaredesign.Login$2
+softwaredesign/tamagotchis/Tamagotchi.java
+ softwaredesign.tamagotchis.Tamagotchi
+softwaredesign/TamagotchiGUI.java
+ softwaredesign.TamagotchiGUI
+softwaredesign/Command.java
+ softwaredesign.Command
+softwaredesign/User.java
+ softwaredesign.User
+softwaredesign/tamagotchis/Professor.java
+ softwaredesign.tamagotchis.Professor
+softwaredesign/tamagotchis/Lecturer.java
+ softwaredesign.tamagotchis.Lecturer
+softwaredesign/tamagotchis/TA.java
+ softwaredesign.tamagotchis.TA
+softwaredesign/Createacc.java
+ softwaredesign.Createacc
+ softwaredesign.Createacc$1
+softwaredesign/Createtama.java
+ softwaredesign.Createtama
+ softwaredesign.Createtama$1

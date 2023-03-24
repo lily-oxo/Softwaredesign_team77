@@ -62,7 +62,7 @@ public class Createacc extends JFrame {
                 else{
                     User user = new User(idField.getText(), nameField.getText(), pwField.getText());
                     frame.dispose();
-                    Login login_page = new Login();
+                    Createtama tama = new Createtama(user);
                 }
             }
         });
