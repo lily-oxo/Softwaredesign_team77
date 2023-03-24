@@ -4,6 +4,8 @@ import softwaredesign.tamagotchis.Tamagotchi;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class TamagotchiGUI extends JFrame {
     private JPanel jp1;
@@ -18,6 +20,11 @@ public class TamagotchiGUI extends JFrame {
     private JButton sleepButton;
     private JButton doctorButton;
     private JButton earnButton;
+    private JButton rockButton;
+    private JButton paperButton;
+    private JButton scissorsButton;
+    private JButton endGameButton;
+    private JPanel RPSpanel;
 
     private User user;
     private Tamagotchi tamagotchi;
@@ -101,6 +108,37 @@ public class TamagotchiGUI extends JFrame {
         setSize(600,500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+
+        playButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RockPaperScissors.playgame();
+
+                // Create RockPaperScissors panel
+                rockButton = new JButton("Rock");
+                paperButton = new JButton("Paper");
+                scissorsButton = new JButton("Scissors");
+                endGameButton = new JButton("End game");
+
+                RPSpanel = new JPanel();
+                RPSpanel.add(rockButton);
+                RPSpanel.add(paperButton);
+                RPSpanel.add(scissorsButton);
+                RPSpanel.add(endGameButton);
+
+                add(RPSpanel, BorderLayout.EAST);
+                jp1.revalidate();
+            }
+        });
+
+        endGameButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jp1.remove(RPSpanel);
+                jp1.repaint();
+                jp1.revalidate();
+            }
+        });
     }
 
 
