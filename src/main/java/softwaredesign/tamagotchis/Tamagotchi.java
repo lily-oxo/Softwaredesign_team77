@@ -6,9 +6,12 @@ public class Tamagotchi {
     private String name;
     private int age;
     private String color;
-    private Vital vital;
+    private String gender;
+    public Vital vital;
 
-    Tamagotchi(){
+    public Tamagotchi(String name, String gender){
+        this.name = name;
+        this.gender = gender;
         vital = new Vital(50, 50, 50);
     }
 

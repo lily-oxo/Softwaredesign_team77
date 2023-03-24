@@ -1,5 +1,6 @@
 package softwaredesign;
 
+import softwaredesign.tamagotchis.Professor;
 import softwaredesign.tamagotchis.Tamagotchi;
 
 import javax.swing.*;
@@ -49,6 +50,8 @@ public class TamagotchiGUI extends JFrame {
 
         this.user = user;
         this.tamagotchi = user.getTamagotchi();
+        //for test
+        this.tamagotchi = new Professor("K", "Female");
         command = new Command(user);
 
         // Set the layout manager for the frame
@@ -60,20 +63,19 @@ public class TamagotchiGUI extends JFrame {
         jp1.add(vital);
 
         hungerVital = new JProgressBar(0, 100);
-        hungerVital.setValue(50);
-        //TODO: Need to be connected to REAL vital
+        hungerVital.setValue(tamagotchi.vital.getHungerV());
         hungerVital.setStringPainted(true);
         hungerVital.setString("Hunger");
         jp1.add(hungerVital);
 
         cleanVital = new JProgressBar(0, 100);
-        cleanVital.setValue(50);
+        cleanVital.setValue(tamagotchi.vital.getCleanlinessV());
         cleanVital.setStringPainted(true);
         cleanVital.setString("Cleanliness");
         jp1.add(cleanVital);
 
         moodVital = new JProgressBar(0, 100);
-        moodVital.setValue(50);
+        moodVital.setValue(tamagotchi.vital.getMoodV());
         moodVital.setStringPainted(true);
         moodVital.setString("Mood");
         jp1.add(moodVital);

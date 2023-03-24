@@ -1,9 +1,9 @@
 package softwaredesign;
 
 public class Vital {
-    int hunger;
-    int cleanliness;
-    int mood;
+    private int hunger;
+    private int cleanliness;
+    private int mood;
     boolean health = true;
     boolean death = false;
 
@@ -47,6 +47,16 @@ public class Vital {
         if(Math.random()>0.5) setCleanliness(-(int)(Math.random()*50));
         checkDeath();
     }
+    public int getHungerV(){
+        return hunger;
+    }
+    public int getCleanlinessV(){
+        return cleanliness;
+    }
+    public int getMoodV(){
+        return mood;
+    }
+
     private void checkDeath(){
         if(!health){
             if(mood<10 || hunger>90 || cleanliness<10) death = true;
