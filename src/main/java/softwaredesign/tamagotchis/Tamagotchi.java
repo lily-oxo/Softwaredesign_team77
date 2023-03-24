@@ -7,7 +7,7 @@ public class Tamagotchi {
     private int age;
     private String color;
     private String gender;
-    private Vital vital;
+    public Vital vital;
 
     public Tamagotchi(String name, String gender){
         this.name = name;

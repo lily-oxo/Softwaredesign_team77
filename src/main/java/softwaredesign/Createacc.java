@@ -12,6 +12,7 @@ public class Createacc extends JFrame {
     private JTextField nameField;
     private JTextField pwField;
     private JButton createAcc;
+    private JButton goBack;
     public Createacc(){
         JFrame frame=new JFrame();
         frame.setTitle("Create Account");
@@ -45,6 +46,8 @@ public class Createacc extends JFrame {
         row.add(pwField);
         j1.add(row);
         row = new JPanel();
+        goBack = new JButton("Go Back");
+        row.add(goBack);
         createAcc = new JButton("Create Account");
         row.add(createAcc);
         j1.add(row);
@@ -64,6 +67,13 @@ public class Createacc extends JFrame {
                     frame.dispose();
                     Createtama tama = new Createtama(user);
                 }
+            }
+        });
+        goBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                Login login_page = new Login();
             }
         });
     }

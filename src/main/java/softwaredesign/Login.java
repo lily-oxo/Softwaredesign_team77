@@ -34,12 +34,14 @@ public class Login {
         frame.add(central_panel,BorderLayout.CENTER);
         central_panel.setLayout(new FlowLayout());
 //        panel.setBackground(new Color(250, 172, 24));
-        JLabel userLabel = new JLabel("Username:");
+        JLabel userLabel = new JLabel("ID:");
+        userLabel.setPreferredSize(new Dimension(60, 25));
         central_panel.add(userLabel);
         JTextField userText = new JTextField(20);
         central_panel.add(userText);
 
         JLabel passwordLabel = new JLabel("Password:");
+        passwordLabel.setPreferredSize(new Dimension(60, 25));
         central_panel.add(passwordLabel);
         JPasswordField passwordText = new JPasswordField(20);
         central_panel.add(passwordText);
@@ -49,17 +51,23 @@ public class Login {
         JButton createaccButton = new JButton("Create Account");
         central_panel.add(createaccButton,BorderLayout.SOUTH);
 
-        //TODO: Add Authentication process
 
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                User user = new User("hi", "a1", "tama");
-                  frame.dispose();
-                  TamagotchiGUI infopage=new TamagotchiGUI(user);
+                if(userText.getText().isBlank() || passwordText.getText().isBlank()) {
+                    JOptionPane err = new JOptionPane();
+                    err.showMessageDialog(null, "Invalid information!", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    //TODO: Add Authentication process
+                    //find User
+                    User user = new User("HI", "a1", "tama");
+                    frame.dispose();
+                    TamagotchiGUI infopage = new TamagotchiGUI(user);
 //                frame.removeAll();
 //                frame.repaint();
 //                frame.revalidate();
+                }
             }
         });
         createaccButton.addActionListener(new ActionListener() {
