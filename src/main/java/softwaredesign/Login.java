@@ -1,10 +1,15 @@
 package softwaredesign;
+import softwaredesign.Users.User;
+import softwaredesign.Users.UserList;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class Login {
+    static UserList userlist = new UserList();
     public Login(){
         JFrame frame=new JFrame();
         /*create frame*/
@@ -55,18 +60,23 @@ public class Login {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(userText.getText().isBlank() || passwordText.getText().isBlank()) {
+                String inputId = userText.getText();
+                String inputPw = passwordText.getText();
+                if(inputId.isBlank() || inputPw.isBlank()) {
                     JOptionPane err = new JOptionPane();
                     err.showMessageDialog(null, "Invalid information!", "Error", JOptionPane.ERROR_MESSAGE);
-                } else {
+                } else if(!userlist.logIn(inputId, inputPw)){
                     //TODO: Add Authentication process
                     //find User
-                    User user = new User("HI", "a1", "tama");
+                    JOptionPane err = new JOptionPane();
+                    err.showMessageDialog(null, "Invalid id or password!", "Error", JOptionPane.ERROR_MESSAGE);
+                }else{
+                    User currentUser = userlist.getCurrentUser();
                     frame.dispose();
-                    TamagotchiGUI infopage = new TamagotchiGUI(user);
-//                frame.removeAll();
-//                frame.repaint();
-//                frame.revalidate();
+                    TamagotchiGUI infopage = new TamagotchiGUI(currentUser);
+//              frame.removeAll();
+//              frame.repaint();
+//              frame.revalidate();
                 }
             }
         });

@@ -1,18 +1,18 @@
-package softwaredesign;
+package softwaredesign.Users;
 
 import softwaredesign.tamagotchis.Tamagotchi;
 
 public class User {
     public String id;
     public String username;
-    private String pw;
+    private Authentication pw;
     private int balance = 0;
     private Tamagotchi tamagotchi;
 
     public User(String id, String username, String pw){
         this.id = id;
         this.username = username;
-        this.pw = pw;
+        this.pw = new Authentication(pw);
     }
 
     public void setTamagotchi(Tamagotchi tamagotchiInput){
@@ -23,5 +23,20 @@ public class User {
     }
     public void rockPaperScissors(){
     }
+    public boolean matchPassword(String pw){
+        return this.pw.matchPassword(pw);
+    }
 
+}
+
+class Authentication {
+    private String pw;
+    Authentication(String pw){
+        this.pw = pw;
+    }
+    boolean matchPassword(String password){
+        if(password == pw){
+            return true;
+        }else return false;
+    }
 }

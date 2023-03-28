@@ -1,5 +1,6 @@
 package softwaredesign;
 
+import softwaredesign.Users.User;
 import softwaredesign.tamagotchis.Professor;
 import softwaredesign.tamagotchis.Tamagotchi;
 

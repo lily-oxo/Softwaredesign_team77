@@ -1,9 +1,9 @@
 package softwaredesign;
 
+import softwaredesign.Users.User;
 import softwaredesign.tamagotchis.Lecturer;
 import softwaredesign.tamagotchis.Professor;
 import softwaredesign.tamagotchis.TA;
-import softwaredesign.tamagotchis.Tamagotchi;
 
 import javax.swing.*;
 import java.awt.*;
