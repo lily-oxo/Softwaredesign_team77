@@ -50,7 +50,7 @@ public class Createtama extends JFrame{
         row.add(t1); row.add(t2); row.add(t3);
         j1.add(row);
         row = new JPanel();
-        createtama = new JButton("Create Account");
+        createtama = new JButton("Create Tamagotchi");
         row.add(createtama);
         j1.add(row);
         container.add(j1);
@@ -66,10 +66,10 @@ public class Createtama extends JFrame{
                 }
                 else if(!((g1.isSelected()^g2.isSelected()^g3.isSelected()) && !(g1.isSelected()&&g2.isSelected()&&g3.isSelected()))){
                     JOptionPane err = new JOptionPane();
-                    err.showMessageDialog(null, "Check only one option!", "Error", JOptionPane.ERROR_MESSAGE);
+                    err.showMessageDialog(null, "Check only one option each!", "Error", JOptionPane.ERROR_MESSAGE);
                 }else if(!((t1.isSelected()^t2.isSelected()^t3.isSelected()) && !(t1.isSelected()&&t2.isSelected()&&t3.isSelected()))){
                     JOptionPane err = new JOptionPane();
-                    err.showMessageDialog(null, "Check only one option!", "Error", JOptionPane.ERROR_MESSAGE);
+                    err.showMessageDialog(null, "Check only one option each!", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 else{
                     String gender="";

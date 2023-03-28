@@ -13,7 +13,7 @@ public class Login {
         JFrame frame = new JFrame();
         //create frame
         frame.setTitle("My Tamagotchi");
-        frame.setSize(600, 500);
+        frame.setSize(700, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   //window can be closed
         frame.setLayout(new BorderLayout());
 
@@ -46,7 +46,7 @@ public class Login {
         central_panel.add(userText);
 
         JLabel passwordLabel = new JLabel("Password:");
-        passwordLabel.setPreferredSize(new Dimension(60, 25));
+        passwordLabel.setPreferredSize(new Dimension(80, 25));
         central_panel.add(passwordLabel);
         JPasswordField passwordText = new JPasswordField(20);
         central_panel.add(passwordText);

@@ -6,7 +6,7 @@ public class User {
     public String id;
     public String username;
     private Authentication pw;
-    private int balance = 0;
+    private int balance = 30;
     private Tamagotchi tamagotchi;
 
     public User(String id, String username, String pw){
@@ -20,6 +20,16 @@ public class User {
     }
     public Tamagotchi getTamagotchi(){
         return tamagotchi;
+    }
+    public boolean enoughBalance(int price){
+        return balance - price >= 0;
+    }
+    public int getBalance(){
+        return balance;
+    }
+    public void buyFood(int price){
+        balance -= price;
+        if(balance<0) balance = 0;
     }
     public void rockPaperScissors(){
     }

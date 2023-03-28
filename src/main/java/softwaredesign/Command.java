@@ -13,9 +13,7 @@ public class Command {
     }
 
     public void feed(){
-
-
-        tamagotchi.eat();
+        tamagotchi.eat(20);
     }
 
     public void play(){
