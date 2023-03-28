@@ -35,7 +35,7 @@ class Authentication {
         this.pw = pw;
     }
     boolean matchPassword(String password){
-        if(password == pw){
+        if(password.equals(pw)){
             return true;
         }else return false;
     }

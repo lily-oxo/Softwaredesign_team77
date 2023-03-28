@@ -6,6 +6,8 @@ import softwaredesign.tamagotchis.Tamagotchi;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class TamagotchiGUI extends JFrame {
     private JPanel jp1;
@@ -104,7 +106,13 @@ public class TamagotchiGUI extends JFrame {
         setSize(600,500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-    }
 
+        feedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+    }
 
 }

@@ -9,12 +9,12 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class Login {
-    static UserList userlist = new UserList();
-    public Login(){
-        JFrame frame=new JFrame();
-        /*create frame*/
+    public Login() {
+        //this.userList = userList;
+        JFrame frame = new JFrame();
+        //create frame
         frame.setTitle("My Tamagotchi");
-        frame.setSize(600,500);
+        frame.setSize(600, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   //window can be closed
         frame.setLayout(new BorderLayout());
 
@@ -23,20 +23,21 @@ public class Login {
         frame.setVisible(true);
     }
 
-    private static void login_fields(JFrame frame){
-        /*add panel in frame and make format*/
+    private static void login_fields(JFrame frame) {
+        //add panel in frame and make format
         //title pattern
+        UserList userList = new UserList();
         JPanel title_panel = new JPanel();
-        frame.add(title_panel,BorderLayout.NORTH);
+        frame.add(title_panel, BorderLayout.NORTH);
         JLabel title_label = new JLabel("TAMAGOTCHI");
-        Font  f1  = new Font(Font.MONOSPACED,  Font.BOLD, 40);
+        Font f1 = new Font(Font.MONOSPACED, Font.BOLD, 40);
         title_label.setFont(f1);
         title_panel.add(title_label);
 
         //<!--need pattern adjust here-->
         //central user info panel
         JPanel central_panel = new JPanel();
-        frame.add(central_panel,BorderLayout.CENTER);
+        frame.add(central_panel, BorderLayout.CENTER);
         central_panel.setLayout(new FlowLayout());
 //        panel.setBackground(new Color(250, 172, 24));
         JLabel userLabel = new JLabel("ID:");
@@ -54,7 +55,7 @@ public class Login {
         JButton loginButton = new JButton("login");
         central_panel.add(loginButton);
         JButton createaccButton = new JButton("Create Account");
-        central_panel.add(createaccButton,BorderLayout.SOUTH);
+        central_panel.add(createaccButton, BorderLayout.SOUTH);
 
 
         loginButton.addActionListener(new ActionListener() {
@@ -62,16 +63,16 @@ public class Login {
             public void actionPerformed(ActionEvent e) {
                 String inputId = userText.getText();
                 String inputPw = passwordText.getText();
-                if(inputId.isBlank() || inputPw.isBlank()) {
+                if (inputId.isBlank() || inputPw.isBlank()) {
                     JOptionPane err = new JOptionPane();
                     err.showMessageDialog(null, "Invalid information!", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if(!userlist.logIn(inputId, inputPw)){
+                } else if (!userList.logIn(inputId, inputPw)) {
                     //TODO: Add Authentication process
                     //find User
                     JOptionPane err = new JOptionPane();
                     err.showMessageDialog(null, "Invalid id or password!", "Error", JOptionPane.ERROR_MESSAGE);
-                }else{
-                    User currentUser = userlist.getCurrentUser();
+                } else {
+                    User currentUser = userList.getCurrentUser();
                     frame.dispose();
                     TamagotchiGUI infopage = new TamagotchiGUI(currentUser);
 //              frame.removeAll();
@@ -89,5 +90,4 @@ public class Login {
             }
         });
     }
-
 }
