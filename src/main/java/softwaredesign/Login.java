@@ -10,7 +10,6 @@ import java.util.List;
 
 public class Login {
     public Login() {
-        //this.userList = userList;
         JFrame frame = new JFrame();
         //create frame
         frame.setTitle("My Tamagotchi");

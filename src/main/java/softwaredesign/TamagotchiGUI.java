@@ -22,10 +22,13 @@ public class TamagotchiGUI extends JFrame {
     private JButton sleepButton;
     private JButton doctorButton;
     private JButton earnButton;
+    private JButton cleanButton;
+    private JButton logOutButton;
 
     private User user;
     private Tamagotchi tamagotchi;
     private Command command;
+    private Observer vitalObserver;
 
     public void feed(){
         //TODO : Show choices of food to User
@@ -54,8 +57,9 @@ public class TamagotchiGUI extends JFrame {
         this.user = user;
         this.tamagotchi = user.getTamagotchi();
         //for test
-        this.tamagotchi = new Professor("K", "Female");
+        //this.tamagotchi = new Professor("K", "Female");
         command = new Command(user);
+        vitalObserver = new Observer(this, tamagotchi);
 
         // Set the layout manager for the frame
         setLayout(new BorderLayout());
@@ -93,26 +97,98 @@ public class TamagotchiGUI extends JFrame {
         playButton = new JButton("Play");
         sleepButton = new JButton("Sleep");
         doctorButton = new JButton("Call Doctor");
+        cleanButton = new JButton("Clean & Wash");
         earnButton = new JButton("Earn Money");
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(feedButton);
         buttonPanel.add(playButton);
         buttonPanel.add(sleepButton);
         buttonPanel.add(doctorButton);
+        buttonPanel.add(cleanButton);
         buttonPanel.add(earnButton);
         add(buttonPanel, BorderLayout.SOUTH);
+        JPanel logOutPanel = new JPanel();
+        logOutButton = new JButton("Log Out");
+        logOutPanel.add(logOutButton);
+        add(logOutPanel, BorderLayout.EAST);
 
         // Set the size of the frame and make it visible
         setSize(600,500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
+        //Set response to each button action
         feedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                feed();
+            }
+        });
+        playButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                play();
+            }
+        });
+        sleepButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rest();
+            }
+        });
+        doctorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                callDoctor();
+            }
+        });
+        cleanButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cleanUp();
+            }
+        });
+        earnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                earnMoneyWithMiniGame();
+            }
+        });
+        logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
             }
         });
+    }
+
+    public void updateFrame(){
+        jp1.removeAll();
+        vital = new JLabel("Vitals ");
+        jp1.add(vital);
+
+        hungerVital = new JProgressBar(0, 100);
+        hungerVital.setValue(tamagotchi.vital.getHungerV());
+        hungerVital.setStringPainted(true);
+        hungerVital.setString("Hunger");
+        jp1.add(hungerVital);
+
+        cleanVital = new JProgressBar(0, 100);
+        cleanVital.setValue(tamagotchi.vital.getCleanlinessV());
+        cleanVital.setStringPainted(true);
+        cleanVital.setString("Cleanliness");
+        jp1.add(cleanVital);
+
+        moodVital = new JProgressBar(0, 100);
+        moodVital.setValue(tamagotchi.vital.getMoodV());
+        moodVital.setStringPainted(true);
+        moodVital.setString("Mood");
+        jp1.add(moodVital);
+
+        add(jp1, BorderLayout.NORTH);
+        jp1.revalidate();
+        jp1.repaint();
     }
 
 }
