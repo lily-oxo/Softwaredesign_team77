@@ -1,6 +1,9 @@
 package softwaredesign;
 
 
+import softwaredesign.Users.User;
+import softwaredesign.Users.UserList;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,6 +16,7 @@ public class Createacc extends JFrame {
     private JTextField pwField;
     private JButton createAcc;
     private JButton goBack;
+    static UserList userList = new UserList();
     public Createacc(){
         JFrame frame=new JFrame();
         frame.setTitle("Create Account");
@@ -64,6 +68,7 @@ public class Createacc extends JFrame {
                 }
                 else{
                     User user = new User(idField.getText(), nameField.getText(), pwField.getText());
+                    userList.addUser(user);
                     frame.dispose();
                     Createtama tama = new Createtama(user);
                 }
