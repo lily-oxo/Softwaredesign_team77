@@ -35,11 +35,9 @@ public class TamagotchiGUI extends JFrame {
 
     private User user;
     private Tamagotchi tamagotchi;
-    //private Command command;
     private Observer vitalObserver;
 
     public void feed(){
-        //TODO : Show choices of food to User
         //food: Sandwich(10euro, -20hunger) / Pancake(15euro, -30hunger) / Pasta(20euro, -50hunger)
         JFrame frame=new JFrame();
         frame.setTitle("Choose Food");
@@ -127,10 +125,7 @@ public class TamagotchiGUI extends JFrame {
 
         this.user = user;
         this.tamagotchi = user.getTamagotchi();
-        //for test
-        //this.tamagotchi = new Professor("K", "Female");
-        //command = new Command(user);
-        vitalObserver = new Observer(this, tamagotchi);
+       vitalObserver = new Observer(this, tamagotchi);
 
         // Set the layout manager for the frame
         setLayout(new BorderLayout());
@@ -181,9 +176,6 @@ public class TamagotchiGUI extends JFrame {
 
         // Create the status label and add it to the top of the frame
         statusLabel = new JLabel(tamagotchi.vital.getStatus());
-        //statusPanel = new JPanel();
-        //statusPanel.add(statusLabel, BorderLayout.SOUTH);
-        //add(statusPanel, BorderLayout.CENTER);
         add(statusLabel, BorderLayout.CENTER);
 
         // Create the buttons and add them to the center of the frame

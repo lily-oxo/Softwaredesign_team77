@@ -1,5 +1,3 @@
-softwaredesign/Main.java
- softwaredesign.Main
 softwaredesign/tamagotchis/Professor.java
  softwaredesign.tamagotchis.Professor
 softwaredesign/Users/UserList.java
@@ -29,6 +27,8 @@ softwaredesign/Command.java
  softwaredesign.Command
 softwaredesign/Observer.java
  softwaredesign.Observer
+softwaredesign/Main.java
+ softwaredesign.Main
 softwaredesign/Vital.java
  softwaredesign.Vital
 softwaredesign/tamagotchis/Lecturer.java
