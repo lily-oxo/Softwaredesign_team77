@@ -103,12 +103,6 @@ public class Vital {
 
     public boolean checkDeath(){
         if(mood<10 || hunger>90 || cleanliness<10) death = true;
-        /*
-        if(!health){
-            if(mood<10 || hunger>90 || cleanliness<10) death = true;
-        }else if(mood<10){
-            if(hunger>90 || cleanliness<10) death = true;
-        }else if(hunger>90 && cleanliness<10) death = true;*/
         return death;
 
     }

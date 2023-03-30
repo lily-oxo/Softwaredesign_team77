@@ -219,6 +219,7 @@ public class TamagotchiGUI extends JFrame {
                     if(Math.random()>0.5) tamagotchi.vital.getHungry();
                     if(Math.random()>0.5) tamagotchi.vital.getLonely();
                     if(Math.random()>0.5) tamagotchi.vital.getDirty();
+                    if(Math.random()>0.7) tamagotchi.vital.getSick();
                 }
                 else{
                     timer.cancel();
