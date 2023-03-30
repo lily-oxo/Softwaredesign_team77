@@ -16,7 +16,7 @@ public class Createacc extends JFrame {
     private JTextField pwField;
     private JButton createAcc;
     private JButton goBack;
-    static UserList userList = new UserList();
+    static UserList userList = UserList.getInstance();
     public Createacc(){
         JFrame frame=new JFrame();
         frame.setTitle("Create Account");
