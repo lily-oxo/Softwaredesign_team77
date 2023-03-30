@@ -70,7 +70,7 @@ public class Createacc extends JFrame {
                     User user = new User(idField.getText(), nameField.getText(), pwField.getText());
                     userList.addUser(user);
                     frame.dispose();
-                    Createtama tama = new Createtama(user);
+                    Createtama tama = new Createtama(user, false);
                 }
             }
         });

@@ -10,6 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.TimerTask;
+import java.util.Timer;
 
 public class TamagotchiGUI extends JFrame {
     private JPanel jp1;
@@ -209,6 +211,31 @@ public class TamagotchiGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
+        //Vitals change every 30 minutes
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            public void run() {
+                if(!tamagotchi.vital.checkDeath()){
+                    if(Math.random()>0.5) tamagotchi.vital.getHungry();
+                    if(Math.random()>0.5) tamagotchi.vital.getLonely();
+                    if(Math.random()>0.5) tamagotchi.vital.getDirty();
+                }
+                else{
+                    timer.cancel();
+                    int response = JOptionPane.showConfirmDialog(null,
+                            "The tamagotchi died due to low vitals. Do you want to continue?", "Select Option", JOptionPane.YES_NO_OPTION);
+                    if(response == JOptionPane.YES_OPTION){
+                        TamagotchiGUI.super.dispose();
+                        Createtama tama = new Createtama(user, true);
+                    } else if(response == JOptionPane.NO_OPTION){
+                        System.exit(0);
+                    }
+                }
+            }
+        };
+        timer.schedule(task,0, 20000);
+
+
         //Set response to each button action
         feedButton.addActionListener(new ActionListener() {
             @Override
@@ -282,6 +309,10 @@ public class TamagotchiGUI extends JFrame {
         add(jp1, BorderLayout.NORTH);
         jp1.revalidate();
         jp1.repaint();
+
+        if(tamagotchi.vital.checkDeath()){
+
+        }
 
         // Update status
         remove(statusLabel);

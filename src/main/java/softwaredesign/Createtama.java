@@ -13,7 +13,7 @@ public class Createtama extends JFrame{
     private JPanel j1;
     private JTextField nameField;
     private JButton createtama;
-    public Createtama(User user){
+    public Createtama(User user, boolean loginState){
         JFrame frame=new JFrame();
         frame.setTitle("Create Tamagotchi");
         frame.setSize(600,500);
@@ -89,7 +89,11 @@ public class Createtama extends JFrame{
                         user.setTamagotchi(tama);
                     }
                     frame.dispose();
-                    Login login_page = new Login();
+                    if(!loginState){
+                        Login login_page = new Login();
+                    } else{
+                        TamagotchiGUI infopage = new TamagotchiGUI(user);
+                    }
                 }
             }
         });

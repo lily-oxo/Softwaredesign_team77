@@ -1,5 +1,3 @@
-softwaredesign/Play.java
- softwaredesign.Play
 softwaredesign/Main.java
  softwaredesign.Main
 softwaredesign/tamagotchis/Professor.java
@@ -19,6 +17,8 @@ softwaredesign/TamagotchiGUI.java
  softwaredesign.TamagotchiGUI$5
  softwaredesign.TamagotchiGUI$6
  softwaredesign.TamagotchiGUI$7
+ softwaredesign.TamagotchiGUI$8
+ softwaredesign.TamagotchiGUI$9
 softwaredesign/Createacc.java
  softwaredesign.Createacc
  softwaredesign.Createacc$1

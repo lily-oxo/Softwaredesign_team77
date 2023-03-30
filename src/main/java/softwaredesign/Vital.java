@@ -1,10 +1,12 @@
 package softwaredesign;
 
+import javax.swing.*;
+
 public class Vital {
     private int hunger;
     private int cleanliness;
     private int mood;
-    private boolean health = false;
+    private boolean health = true;
     private String status;
     boolean death = false;
     Observer observer;
@@ -46,7 +48,8 @@ public class Vital {
     public void getHungry(){
         //TODO: make this function operate as time passes
         //these code are made to operate just randomly when the user logs in
-        if(Math.random()>0.5) setHunger((int)(Math.random()*50));
+        //if(Math.random()>0.5) setHunger((int)(Math.random()*50));
+        if(hunger>5) setHunger(5);
         checkDeath();
         checkStatus();
         notifyObserver();
@@ -58,13 +61,15 @@ public class Vital {
         notifyObserver();
     }
     public void getLonely(){
-        if(Math.random()>0.5) setMood(-(int)(Math.random()*50));
+        //if(Math.random()>0.5) setMood(-(int)(Math.random()*50));
+        if(mood>5) setMood(-5);
         checkDeath();
         checkStatus();
         notifyObserver();
     }
     public void getDirty(){
-        if(Math.random()>0.5) setCleanliness(-(int)(Math.random()*50));
+        //if(Math.random()>0.5) setCleanliness(-(int)(Math.random()*50));
+        if(cleanliness>5) setCleanliness(-5);
         checkDeath();
         checkStatus();
         notifyObserver();
@@ -96,12 +101,16 @@ public class Vital {
         }
     }
 
-    private void checkDeath(){
+    public boolean checkDeath(){
+        if(mood<10 || hunger>90 || cleanliness<10) death = true;
+        /*
         if(!health){
             if(mood<10 || hunger>90 || cleanliness<10) death = true;
         }else if(mood<10){
             if(hunger>90 || cleanliness<10) death = true;
-        }else if(hunger>90 && cleanliness<10) death = true;
+        }else if(hunger>90 && cleanliness<10) death = true;*/
+        return death;
+
     }
 
     //about observer
