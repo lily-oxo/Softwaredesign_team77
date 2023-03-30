@@ -33,12 +33,11 @@ public class Login {
         title_label.setFont(f1);
         title_panel.add(title_label);
 
-        //<!--need pattern adjust here-->
         //central user info panel
         JPanel central_panel = new JPanel();
         frame.add(central_panel, BorderLayout.CENTER);
         central_panel.setLayout(new FlowLayout());
-//        panel.setBackground(new Color(250, 172, 24));
+
         JLabel userLabel = new JLabel("ID:");
         userLabel.setPreferredSize(new Dimension(60, 25));
         central_panel.add(userLabel);
@@ -74,9 +73,6 @@ public class Login {
                     User currentUser = userList.getCurrentUser();
                     frame.dispose();
                     TamagotchiGUI infopage = new TamagotchiGUI(currentUser);
-//              frame.removeAll();
-//              frame.repaint();
-//              frame.revalidate();
                 }
             }
         });
@@ -85,7 +81,6 @@ public class Login {
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
                 Createacc accpage = new Createacc();
-
             }
         });
     }

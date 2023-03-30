@@ -1,15 +1,11 @@
-softwaredesign/Play.java
- softwaredesign.Play
-softwaredesign/Main.java
- softwaredesign.Main
 softwaredesign/tamagotchis/Professor.java
  softwaredesign.tamagotchis.Professor
-softwaredesign/Users/UserList.java
- softwaredesign.Users.UserList
 softwaredesign/Login.java
  softwaredesign.Login
  softwaredesign.Login$1
  softwaredesign.Login$2
+softwaredesign/Users/UserList.java
+ softwaredesign.Users.UserList
 softwaredesign/TamagotchiGUI.java
  softwaredesign.TamagotchiGUI
  softwaredesign.TamagotchiGUI$1
@@ -19,17 +15,20 @@ softwaredesign/TamagotchiGUI.java
  softwaredesign.TamagotchiGUI$5
  softwaredesign.TamagotchiGUI$6
  softwaredesign.TamagotchiGUI$7
+ softwaredesign.TamagotchiGUI$8
+softwaredesign/Createtama.java
+ softwaredesign.Createtama
+ softwaredesign.Createtama$1
 softwaredesign/Createacc.java
  softwaredesign.Createacc
  softwaredesign.Createacc$1
  softwaredesign.Createacc$2
-softwaredesign/Createtama.java
- softwaredesign.Createtama
- softwaredesign.Createtama$1
 softwaredesign/Command.java
  softwaredesign.Command
 softwaredesign/Observer.java
  softwaredesign.Observer
+softwaredesign/Main.java
+ softwaredesign.Main
 softwaredesign/Vital.java
  softwaredesign.Vital
 softwaredesign/tamagotchis/Lecturer.java
