@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserList {
-    public static List<User> userList;
-    public UserList(){
-        if(userList == null) userList = new ArrayList<>();
-    }
+    private static UserList instance = new UserList();
+    public List<User> userList;
+    private UserList(){userList = new ArrayList<>();}
     User currentUser;
+    public static UserList getInstance(){
+        return instance;
+    }
     public boolean logIn(String id, String pw){
         for(User eachUser: userList){
             if (id.equals(eachUser.id)){

@@ -25,7 +25,7 @@ public class Login {
     private static void login_fields(JFrame frame) {
         //add panel in frame and make format
         //title pattern
-        UserList userList = new UserList();
+        UserList userList = UserList.getInstance();
         JPanel title_panel = new JPanel();
         frame.add(title_panel, BorderLayout.NORTH);
         JLabel title_label = new JLabel("TAMAGOTCHI");
