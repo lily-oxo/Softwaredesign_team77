@@ -1,26 +1,25 @@
 package softwaredesign;
+import javax.swing.*;
 import java.util.Scanner;
 import java.util.Random;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.PrintStream;
 
 public class RockPaperScissors {
 
-    public static void playgame() {
-
-        System.out.println("Let's play Rock, Paper, Scissors!");
-        // TO DO: Let this be displayed in the GUI
-
-        // TO DO: make game code compatible with the interface:
+    public static void playGame(JTextArea textArea) {
 
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         int playerScore = 0;
         int computerScore = 0;
         int moneyEarned = 0;
+
+        // Redirect standardOut to JTextArea
+        PrintStream standardOut = System.out;   // Save reference to standardOut, in case it needs to be used later
+        PrintStream printStream = new PrintStream(new customOutputStream(textArea));  // Redirect standardOut to JTextArea
+        System.setOut(printStream);
+
+        System.out.println("Let's play Rock-Paper-Scissors!");
 
         while (true) {
             System.out.println("Choose your move: 1 = Rock, 2 = Paper, 3 = Scissors");
@@ -38,12 +37,13 @@ public class RockPaperScissors {
             } else {
                 result = "You win!";
                 playerScore++;
-                moneyEarned += 10; // player earns 10$ for each win
+                moneyEarned += 10; // player earns €10 for each win
             }
 
             System.out.println("You chose " + moveToString(playerMove) + ".");
             System.out.println("The computer chose " + moveToString(computerMove) + ".");
             System.out.println(result);
+
             System.out.println("Your score: " + playerScore);
             System.out.println("Computer score: " + computerScore);
             System.out.println("Money earned: $" + moneyEarned);
@@ -57,7 +57,7 @@ public class RockPaperScissors {
         }
     }
 
-    public static String moveToString(int move) {
+    private static String moveToString(int move) {
         if (move == 1) {
             return "Rock";
         } else if (move == 2) {

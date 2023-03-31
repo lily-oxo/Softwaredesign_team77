@@ -6,6 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 
 public class TamagotchiGUI extends JFrame {
     private JPanel jp1;
@@ -25,6 +28,8 @@ public class TamagotchiGUI extends JFrame {
     private JButton scissorsButton;
     private JButton endGameButton;
     private JPanel RPSpanel;
+    private JPanel RPSpanel_output;
+    private JTextArea RPStext_output;
 
     private User user;
     private Tamagotchi tamagotchi;
@@ -112,13 +117,12 @@ public class TamagotchiGUI extends JFrame {
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RockPaperScissors.playgame();
-
                 // Create RockPaperScissors panel
                 rockButton = new JButton("Rock");
                 paperButton = new JButton("Paper");
                 scissorsButton = new JButton("Scissors");
                 endGameButton = new JButton("End game");
+                RPStext_output = new JTextArea("test", 50, 20);
 
                 RPSpanel = new JPanel();
                 RPSpanel.add(rockButton);
@@ -126,8 +130,16 @@ public class TamagotchiGUI extends JFrame {
                 RPSpanel.add(scissorsButton);
                 RPSpanel.add(endGameButton);
 
+                RPSpanel_output = new JPanel();
+                RPSpanel_output.add(RPStext_output);
+
                 add(RPSpanel, BorderLayout.EAST);
+                add(RPSpanel_output, BorderLayout.CENTER);
                 jp1.revalidate();
+                RPSpanel_output.revalidate();
+                RPSpanel.revalidate();
+
+                RockPaperScissors.playGame(RPStext_output);
             }
         });
 
@@ -135,6 +147,7 @@ public class TamagotchiGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 jp1.remove(RPSpanel);
+                jp1.remove(RPSpanel_output);
                 jp1.repaint();
                 jp1.revalidate();
             }
