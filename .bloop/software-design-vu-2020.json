@@ -1,0 +1,91 @@
+{
+    "version": "1.4.0",
+    "project": {
+        "name": "software-design-vu-2020",
+        "directory": "C:\\Users\\benja\\OneDrive\\C\\Computer Science Work\\2.4 Software Design\\Code environment\\Softwaredesign_team77",
+        "workspaceDir": "C:\\Users\\benja\\OneDrive\\C\\Computer Science Work\\2.4 Software Design\\Code environment\\Softwaredesign_team77",
+        "sources": [
+            "C:\\Users\\benja\\OneDrive\\C\\Computer Science Work\\2.4 Software Design\\Code environment\\Softwaredesign_team77\\src\\main\\java"
+        ],
+        "dependencies": [
+            
+        ],
+        "classpath": [
+            
+        ],
+        "out": "C:\\Users\\benja\\OneDrive\\C\\Computer Science Work\\2.4 Software Design\\Code environment\\Softwaredesign_team77\\.bloop\\software-design-vu-2020\\build",
+        "classesDir": "C:\\Users\\benja\\OneDrive\\C\\Computer Science Work\\2.4 Software Design\\Code environment\\Softwaredesign_team77\\.bloop\\software-design-vu-2020\\build\\classes",
+        "resources": [
+            "C:\\Users\\benja\\OneDrive\\C\\Computer Science Work\\2.4 Software Design\\Code environment\\Softwaredesign_team77\\src\\main\\resources"
+        ],
+        "java": {
+            "options": [
+                "-source",
+                "11",
+                "-target",
+                "11",
+                "-h",
+                "C:\\Users\\benja\\OneDrive\\C\\Computer Science Work\\2.4 Software Design\\Code environment\\Softwaredesign_team77\\build\\generated\\sources\\headers\\java\\main",
+                "-g",
+                "-sourcepath",
+                "",
+                "-proc:none",
+                "-XDuseUnsharedTable=true"
+            ]
+        },
+        "platform": {
+            "name": "jvm",
+            "config": {
+                "home": "C:\\Program Files\\Eclipse Adoptium\\jdk-8.0.345.1-hotspot",
+                "options": [
+                    
+                ]
+            },
+            "mainClass": [
+                
+            ],
+            "classpath": [
+                
+            ]
+        },
+        "resolution": {
+            "modules": [
+                {
+                    "organization": "org.hamcrest",
+                    "name": "hamcrest-core",
+                    "version": "1.3",
+                    "artifacts": [
+                        {
+                            "name": "hamcrest-core",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\benja\\.gradle\\caches\\modules-2\\files-2.1\\org.hamcrest\\hamcrest-core\\1.3\\1dc37250fbc78e23a65a67fbbaf71d2e9cbc3c0b\\hamcrest-core-1.3-sources.jar"
+                        },
+                        {
+                            "name": "hamcrest-core",
+                            "path": "C:\\Users\\benja\\.gradle\\caches\\modules-2\\files-2.1\\org.hamcrest\\hamcrest-core\\1.3\\42a25dc3219429f0e5d060061f71acb49bf010a0\\hamcrest-core-1.3.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "junit",
+                    "name": "junit",
+                    "version": "4.13.1",
+                    "artifacts": [
+                        {
+                            "name": "junit",
+                            "path": "C:\\Users\\benja\\.gradle\\caches\\modules-2\\files-2.1\\junit\\junit\\4.13.1\\cdd00374f1fee76b11e2a9d127405aa3f6be5b6a\\junit-4.13.1.jar"
+                        },
+                        {
+                            "name": "junit",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\benja\\.gradle\\caches\\modules-2\\files-2.1\\junit\\junit\\4.13.1\\523bdce923a13622132b263550d06519fc591ec4\\junit-4.13.1-sources.jar"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tags": [
+            "library"
+        ]
+    }
+}
