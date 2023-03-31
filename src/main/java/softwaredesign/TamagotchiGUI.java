@@ -6,11 +6,6 @@ import softwaredesign.tamagotchis.Professor;
 import softwaredesign.tamagotchis.TA;
 import softwaredesign.tamagotchis.Tamagotchi;
 
-// Imports for redirecting standardOut stream to Swing
-// import java.io.IOException;
-// import java.io.OutputStream;
-// import java.io.PrintStream;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -40,15 +35,7 @@ public class TamagotchiGUI extends JFrame {
     private JButton cleanButton;
     private JButton logOutButton;
 
-    private JButton rockButton;
-    private JButton paperButton;
-    private JButton scissorsButton;
-    private JButton endGameButton;
-    private JPanel RPSpanel;
-    private JPanel RPSpanel_output;
-    private JTextArea RPStext_output;
-
-    private User user;
+    public static User user;
     private Tamagotchi tamagotchi;
     private Observer vitalObserver;
 
@@ -57,7 +44,7 @@ public class TamagotchiGUI extends JFrame {
         JFrame frame=new JFrame();
         frame.setTitle("Choose Food");
         frame.setSize(500,300);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   //window can be closed
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);   //window can be closed
         frame.setLayout(new BorderLayout());
         frame.setVisible(true);
 
@@ -210,7 +197,6 @@ public class TamagotchiGUI extends JFrame {
         buttonPanel.add(earnButton);
         add(buttonPanel, BorderLayout.SOUTH);
 
-
         // Set the size of the frame and make it visible
         setSize(600, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -285,46 +271,6 @@ public class TamagotchiGUI extends JFrame {
                 Login login = new Login();
             }
         });
-
-        playButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Create RockPaperScissors panel
-                rockButton = new JButton("Rock");
-                paperButton = new JButton("Paper");
-                scissorsButton = new JButton("Scissors");
-                endGameButton = new JButton("End game");
-                RPStext_output = new JTextArea("test", 50, 20);
-
-                RPSpanel = new JPanel();
-                RPSpanel.add(rockButton);
-                RPSpanel.add(paperButton);
-                RPSpanel.add(scissorsButton);
-                RPSpanel.add(endGameButton);
-
-                RPSpanel_output = new JPanel();
-                RPSpanel_output.add(RPStext_output);
-
-                add(RPSpanel, BorderLayout.EAST);
-                add(RPSpanel_output, BorderLayout.CENTER);
-                jp1.revalidate();
-                RPSpanel_output.revalidate();
-                RPSpanel.revalidate();
-
-                RockPaperScissors.playGame(RPStext_output);
-            }
-        });
-
-        endGameButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jp1.remove(RPSpanel);
-                jp1.remove(RPSpanel_output);
-                jp1.repaint();
-                jp1.revalidate();
-            }
-        });
-
     }
 
     public void updateFrame(){

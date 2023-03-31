@@ -1,12 +1,13 @@
 package softwaredesign.Users;
 
+import softwaredesign.RockPaperScissors;
 import softwaredesign.tamagotchis.Tamagotchi;
 
 public class User {
     public String id;
     public String username;
     private Authentication pw;
-    private int balance = 30;
+    public int balance = 30;
     private Tamagotchi tamagotchi;
 
     public User(String id, String username, String pw){
@@ -27,11 +28,16 @@ public class User {
     public int getBalance(){
         return balance;
     }
+    public void updateBalance(int addition) {
+        balance = balance + addition;
+    }
     public void buyFood(int price){
         balance -= price;
         if(balance<0) balance = 0;
     }
     public void rockPaperScissors(){
+        RockPaperScissors RPSgame = new RockPaperScissors();
+        RPSgame.playGame();
     }
     public boolean matchPassword(String pw){
         return this.pw.matchPassword(pw);
