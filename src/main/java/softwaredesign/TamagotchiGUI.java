@@ -6,6 +6,11 @@ import softwaredesign.tamagotchis.Professor;
 import softwaredesign.tamagotchis.TA;
 import softwaredesign.tamagotchis.Tamagotchi;
 
+// Imports for redirecting standardOut stream to Swing
+// import java.io.IOException;
+// import java.io.OutputStream;
+// import java.io.PrintStream;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -34,6 +39,14 @@ public class TamagotchiGUI extends JFrame {
     private JButton earnButton;
     private JButton cleanButton;
     private JButton logOutButton;
+
+    private JButton rockButton;
+    private JButton paperButton;
+    private JButton scissorsButton;
+    private JButton endGameButton;
+    private JPanel RPSpanel;
+    private JPanel RPSpanel_output;
+    private JTextArea RPStext_output;
 
     private User user;
     private Tamagotchi tamagotchi;
@@ -127,7 +140,7 @@ public class TamagotchiGUI extends JFrame {
 
         this.user = user;
         this.tamagotchi = user.getTamagotchi();
-       vitalObserver = new Observer(this, tamagotchi);
+        vitalObserver = new Observer(this, tamagotchi);
 
         // Set the layout manager for the frame
         setLayout(new BorderLayout());
@@ -199,7 +212,7 @@ public class TamagotchiGUI extends JFrame {
 
 
         // Set the size of the frame and make it visible
-        setSize(600,500);
+        setSize(600, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
@@ -207,26 +220,25 @@ public class TamagotchiGUI extends JFrame {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             public void run() {
-                if(!tamagotchi.vital.checkDeath()){
-                    if(Math.random()>0.5) tamagotchi.vital.getHungry();
-                    if(Math.random()>0.5) tamagotchi.vital.getLonely();
-                    if(Math.random()>0.5) tamagotchi.vital.getDirty();
-                    if(Math.random()>0.7) tamagotchi.vital.getSick();
-                }
-                else{
+                if (!tamagotchi.vital.checkDeath()) {
+                    if (Math.random() > 0.5) tamagotchi.vital.getHungry();
+                    if (Math.random() > 0.5) tamagotchi.vital.getLonely();
+                    if (Math.random() > 0.5) tamagotchi.vital.getDirty();
+                    if (Math.random() > 0.7) tamagotchi.vital.getSick();
+                } else {
                     timer.cancel();
                     int response = JOptionPane.showConfirmDialog(null,
                             "The tamagotchi died due to low vitals. Do you want to continue?", "Select Option", JOptionPane.YES_NO_OPTION);
-                    if(response == JOptionPane.YES_OPTION){
+                    if (response == JOptionPane.YES_OPTION) {
                         TamagotchiGUI.super.dispose();
                         Createtama tama = new Createtama(user, true);
-                    } else if(response == JOptionPane.NO_OPTION){
+                    } else if (response == JOptionPane.NO_OPTION) {
                         System.exit(0);
                     }
                 }
             }
         };
-        timer.schedule(task,0, 20000);
+        timer.schedule(task, 0, 20000);
 
 
         //Set response to each button action
@@ -273,6 +285,46 @@ public class TamagotchiGUI extends JFrame {
                 Login login = new Login();
             }
         });
+
+        playButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Create RockPaperScissors panel
+                rockButton = new JButton("Rock");
+                paperButton = new JButton("Paper");
+                scissorsButton = new JButton("Scissors");
+                endGameButton = new JButton("End game");
+                RPStext_output = new JTextArea("test", 50, 20);
+
+                RPSpanel = new JPanel();
+                RPSpanel.add(rockButton);
+                RPSpanel.add(paperButton);
+                RPSpanel.add(scissorsButton);
+                RPSpanel.add(endGameButton);
+
+                RPSpanel_output = new JPanel();
+                RPSpanel_output.add(RPStext_output);
+
+                add(RPSpanel, BorderLayout.EAST);
+                add(RPSpanel_output, BorderLayout.CENTER);
+                jp1.revalidate();
+                RPSpanel_output.revalidate();
+                RPSpanel.revalidate();
+
+                RockPaperScissors.playGame(RPStext_output);
+            }
+        });
+
+        endGameButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jp1.remove(RPSpanel);
+                jp1.remove(RPSpanel_output);
+                jp1.repaint();
+                jp1.revalidate();
+            }
+        });
+
     }
 
     public void updateFrame(){
